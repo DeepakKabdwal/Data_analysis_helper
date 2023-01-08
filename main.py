@@ -3,7 +3,7 @@ import numpy as np #if you don't know its use then I have bad news for you
 import matplotlib.pyplot as plt #plotting data in graph
 import pandas as pd #for creating and using dataframes
 import seaborn as sns #for visualising data uses matplotlib
-import calendar #obvious
+import calendar # just what it sounds to like it does
 import os
 
 # import the csv file into a pandas dataframe
@@ -54,15 +54,20 @@ df['END_DATE*'] = pd.to_datetime(df['END_DATE*'], format='%m/%d/%Y %H:%M')
 print('Performing EDA'.center(250))
 
 #print(df['CATEGORY*'].unique()) #prints all the unique values in the category column
+
+# the syntax for this is first the columns we want to work on then the grouping method then the function we want to
+# on the grouped data here we apply aggregate function
 #print(df[['CATEGORY*', 'MILES*']].groupby(['CATEGORY*']).aggregate(total_miles=('MILES*', 'sum')))
 # prints the total distance travelled grouped by category
 
 # graphically show the total distance travelled in each category
+# same syntax as the grouping of data just apply plot function
 df[['CATEGORY*','MILES*']].groupby(['CATEGORY*']).agg(tot_miles=('MILES*','sum')).plot(kind='bar')
 plt.xlabel('Category')
 plt.ylabel('Miles Travelled')
 plt.title('Total Miles per category')
-plt.show()
+plt.show()  #used to display the graph
+
 
 
 
