@@ -27,7 +27,7 @@ print('Basic manipulation in the data ;) <3'.center(250))
 
 #print(df[df['PURPOSE*'].isnull()]) # this will print out the rows which have null values in the selected column
 
-#df.drop(df[df['END_DATE*'].isnull()].index,axis=0,inplace=True)
+df.drop(df[df['END_DATE*'].isnull()].index,axis=0,inplace=True)
 # drops the rows which contain null values axis is for selecting row(0) or column(1)
 #print(df.isnull().sum())
 
@@ -35,16 +35,23 @@ print('Basic manipulation in the data ;) <3'.center(250))
 # the info is needed to be used as a function otherwise data will be printed
 
 # dropping the purpose column as it has a large number of NULL values
-#df.drop(['PURPOSE*'],axis=1,inplace=True)
+df.drop(['PURPOSE*'],axis=1,inplace=True)
 
 #print(df[df.duplicated()]) #prints out the duplicated record
 
 #df.drop(df[df.duplicated()].index, axis = 0, inplace=True) #removes the row containing duplicate data
 
 # changing the datetime format to datetime from object as it was before
-#df['START_DATE*'] = pd.to_datetime(df['START_DATE*'], format='%m/%d/%Y %H:%M')
-#df['END_DATE*'] = pd.to_datetime(df['END_DATE*'], format='%m/%d/%Y %H:%M')
+df['START_DATE*'] = pd.to_datetime(df['START_DATE*'], format='%m/%d/%Y %H:%M')
+df['END_DATE*'] = pd.to_datetime(df['END_DATE*'], format='%m/%d/%Y %H:%M')
+print(df.dtypes)
 # for this to work the total row needs to be dropped as it does NOT have a date and it will give error
+# doing this, so we can apply some datetime manipulating functions in the data like finding the time taken in a journey
+
+# Moving on to EDA (EXPLORATORY DATA ANALYSIS)
+# knowing our dataset
+
+
 
 
 
