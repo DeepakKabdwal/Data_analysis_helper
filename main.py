@@ -11,7 +11,8 @@ df = pd.read_csv('My Uber Drives.csv')
 print('Basic manipulation in the data ;) <3'.center(250))
 # all the changes made here will be on the DATAFRAME, NOT the CSV file so re-loading will revert the changes
 
-#print(df.head()) # prints first 5 rows and 5 columns of any dataframe
+print(df.head()) # prints first 5 rows and 5 columns of any dataframe
+
 
 #print(df.tail()) # prints last 5 rows and 5 columns of any dataframe
 
@@ -52,7 +53,7 @@ df['END_DATE*'] = pd.to_datetime(df['END_DATE*'], format='%m/%d/%Y %H:%M')
 # that is, knowing our dataset
 
 print('Performing EDA'.center(250))
-
+print(df.describe())
 #print(df['CATEGORY*'].unique()) #prints all the unique values in the category column
 
 # the syntax for this is first the columns we want to work on then the grouping method then the function we want to
@@ -62,11 +63,15 @@ print('Performing EDA'.center(250))
 
 # graphically show the total distance travelled in each category
 # same syntax as the grouping of data just apply plot function
-df[['CATEGORY*','MILES*']].groupby(['CATEGORY*']).agg(tot_miles=('MILES*','sum')).plot(kind='bar')
-plt.xlabel('Category')
-plt.ylabel('Miles Travelled')
-plt.title('Total Miles per category')
-plt.show()  #used to display the graph
+# df[['CATEGORY*','MILES*']].groupby(['CATEGORY*']).agg(tot_miles=('MILES*','sum')).plot(kind='bar')
+# plt.xlabel('Category')
+# plt.ylabel('Miles Travelled')
+# plt.title('Total Miles per category')
+# plt.show()  #used to display the graph
+
+print(df.describe())
+
+
 
 
 
